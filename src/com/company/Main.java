@@ -27,18 +27,19 @@ public class Main {
             }
 
             for (Character ch:ranMap.keySet()) {
-                if (magMap.containsKey(ch) && magMap.get(ch) >= ranMap.get(ch)){
-                    return true;
-                }
+                if (!magMap.containsKey(ch)) return false;
+                else if (!(magMap.get(ch) >= ranMap.get(ch))) return false;
             }
 
-            return false;
+
+            return true;
         }
     }
 
     public static void main(String[] args) {
 	// write your code here
         Solution sol = new Solution();
-        System.out.println(sol.canConstruct("a","b"));
+        System.out.println(sol.canConstruct(
+                "aa","aab"));
     }
 }
